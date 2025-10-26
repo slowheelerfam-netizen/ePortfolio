@@ -1,5 +1,6 @@
-*{@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:ital,wght@0,300;1,300&display=swap');
 
+* {
     font-family: 'Lato', sans-serif;
     padding: 0;
     box-sizing: border-box;
@@ -20,10 +21,38 @@ h1, h2, h3, h4, h5, h6, span {
     list-style-type: none; /*This removes the bullet points*/
  }
 
+ /* Define the keyframes for the waving animation */
+@keyframes wave-animation {
+    0% { transform: rotate(0.0deg); }
+    10% { transform: rotate(14.0deg); }
+    20% { transform: rotate(-8.0deg); }
+    30% { transform: rotate(14.0deg); }
+    40% { transform: rotate(-4.0deg); }
+    50% { transform: rotate(10.0deg); }
+    60% { transform: rotate(0.0deg); }
+    100% { transform: rotate(0.0deg); }
+}
+
+/* Apply the animation to the waving-hand class */
+.waving-hand {
+    /* Ensures the element can be transformed */
+    display: inline-block;
+    /* Apply the animation: name, duration, and loop infinitely */
+    animation: wave-animation 2.5s infinite;
+    /* Change the pivot point to make the wave more natural */
+    transform-origin: 70% 70%;
+}
+
+
+ .flex {
+    display: flex;
+ }
 .flex-1 {
     flex: 1;
 }
-
+.container {
+    padding: 50px 0;
+}
 .row {
     width: 100%;
     max-width: 800px;
@@ -33,11 +62,21 @@ h1, h2, h3, h4, h5, h6, span {
 .text--purple {
     color: #6030b1;
 }
+
+section:nth-child(even) {
+    background-color: #f8f8f8;
+    align-items: center;
+}
+.section__title {
+    margin-bottom: 20px;
+}
  /* NAVIGATION BAR */
+
 
  nav {
     height: 100px;
-    max-width: 1300px;
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -76,15 +115,20 @@ h1, h2, h3, h4, h5, h6, span {
     flex-direction: column;
 }
 
+.about-me__info {
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .about-me__info--container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
-    text-align: center;
-    
+    text-align: center; /* This aligns the text in all child info--containers*/
+
 }
 
 .about-me__picture--mask {
@@ -93,6 +137,7 @@ h1, h2, h3, h4, h5, h6, span {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, .16);
+    margin-bottom: 28px;
 }
 
 .about-me__picture {
@@ -114,7 +159,50 @@ padding-top: 8px      **so he made room */
 
 .about-me__link {
     font-size: 20px;
-    color:#6030b1;
+    color:#242424;
     text-decoration: none;
-    padding: 0 16px;
+    padding: 0 16px;  /*This will separate the icons left and right*/
 }
+.about-me__img--container {
+    flex: 1; /*This will make the image extend to the entire height of 
+              rest of the page (the space left over*/
+    display: flex;
+    align-items: center;
+    
+    /*
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;*/
+ 
+}
+.about-me__img {
+        width: 100%;
+    }
+
+  /* TECH STACK */
+
+.language__img {
+    width: 100%;
+    max-width: 100%;
+}
+.languages {
+    width: 25%;
+}
+
+.language__img--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+   
+}
+
+.language {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
